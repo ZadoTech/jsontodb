@@ -95,6 +95,8 @@ class JDB:
         g = open(self.dbfile, "w")
         j = h.replace("}{", ", ") # fix error
         j = j.replace("{, ", "{") # fix error
+        j = j.replace("{{", "{") # fix error
+        j = j.replace("}}", "}") # fix error
         g.write(j)
         g.close()
         g = open(self.dbfile, "r")
@@ -106,7 +108,7 @@ class JDB:
         except:
             #pass
 	        return "<FJDB Unexpected Error>"
-
+	
 ### HELP FOR CLASS ### copyright anysz
 # call Class				f = JDB("group.setting")
 # to add data 				f.add(KEY, DATA)		||	return bool
